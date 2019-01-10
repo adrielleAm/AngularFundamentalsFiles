@@ -1,6 +1,10 @@
 'use strict'
 
 eventsApp.controller('EventController', ['$scope', function ($scope) {
+    $scope.snippet ='<span style="color:red">Hi there!!</span>';
+    $scope.boolValue = true;
+    $scope.mystyle = {color:'red'};
+    $scope.myclass = 'blue';
     $scope.event = {
         name: "Angular Boot Camp",
         date: "10/01/2019",
@@ -18,7 +22,8 @@ eventsApp.controller('EventController', ['$scope', function ($scope) {
                 creatorName: "Bob Smith",
                 duration: "1 hr",
                 level: "Advanced",
-                abstract: "In this session you woll learn the ins and outs of directives."
+                abstract: "In this session you woll learn the ins and outs of directives.",
+                upVoteCount: 0
             },
 
             {
@@ -26,7 +31,8 @@ eventsApp.controller('EventController', ['$scope', function ($scope) {
                 creatorName: "John Dow",
                 duration: "30 mins",
                 level: "Introductory",
-                abstract: "This session will take a closer look at scopes."
+                abstract: "This session will take a closer look at scopes.",
+                upVoteCount: 0
             },
 
             {
@@ -34,8 +40,18 @@ eventsApp.controller('EventController', ['$scope', function ($scope) {
                 creatorName: "Jane Doe",
                 duration: "2 hours",
                 level: "Intermediate",
-                abstract: "Controllers are the beginnig of everything."
+                abstract: "Controllers are the beginnig of everything.",
+                upVoteCount: 0
             }
         ]
     }
+
+    $scope.upVoteSession = function(session){
+        session.upVoteCount++;
+    }
+
+    $scope.downVoteSession = function(session){
+        session.upVoteCount--;
+    }
+
 }]);
